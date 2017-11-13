@@ -1,0 +1,46 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int min=15,m=0;
+        String name="";
+        boolean flag=false;
+        for(int a0 = 0; a0 < n; a0++){
+            String s = in.next();
+            int num = in.nextInt();
+            int f4=0,s7=0;
+            while(num>0){
+                m=num%10;
+                num=num/10;
+                if(m==4)
+                    f4++;
+                else
+                   if(m==7)
+                       s7++;
+                else
+                {
+                    f4=0;s7=0;
+                    break;
+                }
+            }
+            if(min>(f4+s7)&&f4==s7&&f4!=0&&s7!=0){
+                min=f4+s7;
+                name=s;
+                flag=true;
+            }
+            
+        }
+        if(flag)
+            System.out.println(name);
+        else
+            System.out.println("-1");
+        in.close();
+    }
+}
